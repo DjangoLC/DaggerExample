@@ -28,8 +28,10 @@ public class ProviderLocation implements LocationListener {
 
     @Override
     public void onLocationChanged(Location location) {
-        if (location!=null)
+        if (location!=null) {
             listener.positionChanged(location);
+            locationManager.removeUpdates(this);
+        }
     }
 
     @Override
